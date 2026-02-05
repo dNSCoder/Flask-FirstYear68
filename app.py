@@ -24,19 +24,29 @@ def about():
     return render_template("about.html", title="about")
 
 
-request = [
-    {"ids": 1, "case_name": "แจ้งซ่อมพัดลม", "location": "ห้อง 101"},
-    {"ids": 2, "case_name": "แจ้งซ่อมแอร์", "location": "ห้อง 202"},
-    {"ids": 3, "case_name": "แจ้งซ่อมประตู", "location": "ห้อง 303"}
-    ]
+repair_case = [
+    {"id": 1, "case_name": "แจ้งซ่อมพัดลม", "location": "ห้อง 101", "description": None, "created_at": "2026-02-05 10:00"},
+    {"id": 2, "case_name": "แจ้งซ่อมแอร์",   "location": "ห้อง 202", "description": None, "created_at": "2026-02-05 10:05"},
+    {"id": 3, "case_name": "แจ้งซ่อมประตู",  "location": "ห้อง 303", "description": None, "created_at": "2026-02-05 10:10"},
+]
 
 @app.route("/listRequest")
 def list_request(): 
-    return render_template("request_cases.html", request_cases=request, title = "Case")
+    return render_template("request_cases.html", request_cases=repair_case, title = "Case")
 
+
+
+
+#การบ้านอยู่ที่ส่วนนี้
 @app.route("/new_case")
 def new_case():
     return render_template("new.html")
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
